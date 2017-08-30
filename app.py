@@ -38,8 +38,37 @@ def is_logged_in(f):
 def about():
     return render_template("about.html")
 
+@app.route('/insights',methods=['POST','GET'])
+def insights():
+    #create cursor
+    cur=mysql.connection.cursor()
+    result=cur.execute("select sum(body) as sum from articles")
+    insights=cur.fetchall()
+    a=list(insights[0].values())
+    result=cur.execute("select max(body) as maxi from articles")
+    maxi=cur.fetchall()
+    b=list(maxi[0].values())
+
+    result=cur.execute("select min(body) as mini from articles")
+    mini=cur.fetchall()
+    c=list(mini[0].values())
+    
+    
+    #if insights>0:
+    return render_template('insights.html',insights=a[0],maxi=b[0],mini=c[0])
+    #else:
+     #   msg="No expense found"
+      #  return render_template('insights.html',msg=msg)
+    #close connection
+    cur.close()
+
+
+
+
+    
+'''
 #articles
-@app.route('/articles')
+@app.route('/expenses')
 @is_logged_in
 def articles():
 
@@ -49,23 +78,23 @@ def articles():
     result=cur.execute("select * from articles")
     articles=cur.fetchall()
     if result>0:
-        return render_template('articles.html',articles=articles)
+        return render_template('expenses.html',articles=articles)
     else:
-        msg="No articles found"
-        return render_template('articles.html',msg=msg)
+        msg="No expenditure found"
+        return render_template('expenses.html',msg=msg)
     #close connection
     cur.close()
 
-@app.route('/articles/<string:id>/')
+@app.route('/expenses/<string:id>/')
 def article(id):
     #create cursor
     cur=mysql.connection.cursor()
     result=cur.execute("select * from articles where id= %s",[id])
     
     article=cur.fetchone()
-    return render_template('article.html',article=article)
+    return render_template('expenses.html',article=article)
     
-    
+'''    
 class RegisterForm(Form):
 	name=StringField('Name',[validators.Length(min=1,max=30)])
 	username=StringField('Username',[validators.Length(min=5,max=100)])
