@@ -42,14 +42,16 @@ def about():
 def insights():
     #create cursor
     cur=mysql.connection.cursor()
-    result=cur.execute("select sum(body) as sum from articles")
+    result=cur.execute("select sum(body) as sum from articles where author=%s",(session['username'],))
     insights=cur.fetchall()
     a=list(insights[0].values())
-    result=cur.execute("select max(body) as maxi from articles")
+    result=cur.execute("select max(body) as maxi from articles where author=%s",(session['username'],))
     maxi=cur.fetchall()
     b=list(maxi[0].values())
 
-    result=cur.execute("select min(body) as mini from articles")
+    #identity=session['username']    
+
+    result=cur.execute("select min(body) as mini from articles where author=%s",(session['username'],))
     mini=cur.fetchall()
     c=list(mini[0].values())
     

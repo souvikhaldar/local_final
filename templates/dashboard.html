@@ -4,6 +4,7 @@
 <h1>Dashboard of Expenditures<small>Welcome {{session.username}}</small></h1>
 <a class="btn btn-success" href="/add_article">Add expenditure</a>
 <hr>
+
 <table class="table table-striped">
 	<tr>
 		<th>Expense</th>
@@ -13,6 +14,7 @@
 		<th></th>
 	</tr>
 	{% for article in articles %}
+	{% if article.author==session.username :%}
 		<tr>
 			<td>{{article.title}}</td>
 			<td>{{article.author}}</td>
@@ -26,7 +28,9 @@
 			</form>
 			</td>
 		</tr>
+		{% endif %}
 	{% endfor %}
+	
 </table>
 		<a href="/insights" class="btn btn-default">Draw Insights</a></td>
 {% endblock %}
