@@ -1,9 +1,68 @@
 {% extends 'layout.html'%}
+
 {% block body %}
-<img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAucAAAAJDRlMDJmZWU2LTBjYjgtNDQ5MS04ZTViLWQ3MmE4YzY3ZjUwMA.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="236" >
-<h1>My resume</h1>
+
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+</style>
+
+<h1 class="text-warning"> About the creator </h1>
+  <img src="{{url_for('static', filename='profile.jpg')}}" class="img-thumbnail" alt="Souvik Haldar" width="300" height="400"/><br><br>
+
+<a href="https://www.facebook.com/s0uvikhaldar" class="fa fa-facebook" target="_blank"></a>
+<a href="https://twitter.com/souvikscosmos" class="fa fa-twitter" target="_blank"></a>
+<a href="https://plus.google.com/u/0/+SouvikHaldarmustang" class="fa fa-google" target="_blank"></a>
+<a href="https://www.linkedin.com/in/souvikhaldar/" class="fa fa-linkedin" target="_blank"></a>
+<a href="https://www.youtube.com/channel/UCUX6Z_qseERcReDrY2sE7KA/featured?view_as=subscriber" class="fa fa-youtube" target="_blank"></a>
+<a href="https://www.instagram.com/souvikhaldar/?hl=en" class="fa fa-instagram" target="_blank"></a>
+
+<h1><mark>Curriculum Vitae</mark></h1><hr>
 <p class="lead">
-  <h2>Additional Qualification / Achievements / Certifications:</h2></br></br>
+  <h2 class="text-primary">Additional Qualification / Achievements / Certifications:</h2></br></br>
 1)All India rank in top 2 percentile in NPTEL exam on Modern Application Development.</br>
 2)Deputy Head of Public Relations and content writer for www.indiansnews.com </br>
 3)Summer Intern at Indian Railways in accounts department of RNC division.</br>
@@ -19,20 +78,20 @@
 
 </p>
 <p class="text-center">
-  <h2>Subjects of Interest:</h2></br></br>
+  <h2 class="text-success">Subjects of Interest:</h2></br></br>
  1)Web-app development.</br>
  2)Data Structure </br>
 </p>
 
 <p class="lead">
-<h2>Computer Proficiency:</h2></br></br>
+<h2 class="text-danger">Computer Proficiency:</h2></br></br>
 1)Python 3</br>
 2)C</br>
 3)Flask</br>
 </p>
 
 <p class="lead">
-<h2>Personal Details:</h2></br></br>
+<h2 class="text-info">Personal Details:</h2></br></br>
 1) Date of Birth		: 11/02/1996</br>
 2) Gender	          : Male</br>
 3) Languages Known	: English, Bengali, Hindi</br>
